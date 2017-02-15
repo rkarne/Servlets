@@ -47,11 +47,30 @@ public class AccountTest {
 
     @Test
     public void testGetBalanceIs100AfterDeposit500ThenWithdraw400() {
-        
+        double deposit = 500.0;
+       double withdraw = 400.0;
+       double expResult = 500.0;
+       Account instance = new Account();
+       instance.deposit(deposit);
+       double result = instance.getBalance();
+       assertEquals(expResult, result, 0.0);
+       instance.withdraw(withdraw);
+       expResult = 100.0;
+       double result2 = instance.getBalance();
+       assertEquals(expResult, result2, 0.0); 
     }
     
     @Test
     public void testGetBalanceIsZeroAfterDeposit500ThenClose() {
-        
+         double deposit = 500.0;
+       double expResult = 500.0;
+       Account instance = new Account();
+       instance.deposit(deposit);
+       double result = instance.getBalance();
+       assertEquals(expResult, result, 0.0);
+       instance.close();
+       expResult=0.0;
+       double result2 = instance.getBalance();
+       assertEquals(expResult, result2, 0.0);
     }
 }
