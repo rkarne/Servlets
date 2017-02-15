@@ -40,6 +40,16 @@ public class AccountServlet extends HttpServlet {
         response.getWriter().write(balance);
     }
      protected void doPost (HttpServletRequest request, HttpServletResponse response){
-        
+         if (request.getParameter("withdraw")!= null ){
+        double withdraw = Double.parseDouble(request.getParameter("withdraw"));
+         acc.withdraw(withdraw);
+         }
+         else if (request.getParameter("deposit")!=null){
+             double dep = Double.parseDouble(request.getParameter("deposit"));
+         acc.deposit(dep);
+         }
+         else {
+             acc.close();
+         }
     }
 }
