@@ -44,7 +44,7 @@ public class AccountTest {
         double result = instance.getBalance();
         assertEquals(expResult, result, 0.0);
     }
-
+//Testing account java class
     @Test
     public void testGetBalanceIs100AfterDeposit500ThenWithdraw400() {
         double deposit = 500.0;
