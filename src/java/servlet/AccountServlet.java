@@ -31,15 +31,14 @@ public class AccountServlet extends HttpServlet {
     
     Account acc = new Account();
     protected void doGet (HttpServletRequest request, HttpServletResponse response) throws IOException{
-        
+        //getting the value of balence and posting it to the site after parsing it to string
         response.setHeader("Cache-Control", "private, no-store, no-cache, must-revalidate");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
-        //double result = acc.getBalance();
-        String balance = String.valueOf(acc.getBalance());
-        response.getWriter().write(balance);
-    }
+        response.getWriter().write(String.valueOf(acc.getBalance()));
+     }
      protected void doPost (HttpServletRequest request, HttpServletResponse response){
+         //check if a withdraw or deposit is being maid if neither is beting made the account gets closed
          if (request.getParameter("withdraw")!= null ){
         double withdraw = Double.parseDouble(request.getParameter("withdraw"));
          acc.withdraw(withdraw);
